@@ -1,0 +1,118 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+//
+// application.css
+//  A simple responsive css framework. Currently only works for desktop.
+//  Can be extended to support other screen sizes.
+//
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  /* Removes padding behaviour on widths */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Attribute selector */
+[class*='col-'] {
+  float: left;
+  padding: 10px;
+}
+
+/* Floats last ".col-" to the right */
+[class*='col-']:last-of-type {
+  padding-right: 10px;
+  float: right;
+}
+
+/* Clearfix */
+.frame:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Main Widths */
+.col-1  {width: 100%;}
+.col-2  {width: 50%;}
+.col-3  {width: 33.33%;}
+.col-4  {width: 25%;}
+.col-5  {width: 20%;}
+.col-6  {width: 16.6666666667%;}
+.col-7  {width: 14.2857142857%;}
+.col-8  {width: 12.5%;}
+.col-9  {width: 11.1111111111%;}
+.col-10 {width: 10%;}
+.col-11 {width: 9.09090909091%;}
+.col-12 {width: 8.33%;}
+
+/*base tablet to small desktop styles*/
+/*@media (min-width: 800px) and (max-width: 1100px) {
+  .col-2,
+  .col-7 {
+    width: 100%;
+  }
+
+  .col-4,
+  .col-8,
+  .col-10,
+  .col-12 {
+    width: 50%;
+  }
+}*/
+
+/*base tablet styles*/
+/*@media (max-width: 800px) {
+  .col-4,
+  .col-6,
+  .col-8,
+  .col-10,
+  .col-12 {
+    width: 50%;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-5,
+  .col-7,
+  .col-9,
+  .col-11 {
+    width: 100%;
+  }
+}*/
+
+/*base mobile styles - everything 100%*/
+/*@media (max-width: 480px) {
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    width: 100%;
+  }
+} */

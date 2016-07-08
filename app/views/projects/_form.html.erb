@@ -1,0 +1,42 @@
+<%= form_for(@project) do |p| %>
+
+  <%= p.label :title %>
+  <span class="error">
+    <%= @project.errors[:title][0] %>
+  </span>
+  <%= p.text_field :title %>
+
+  <%= p.label :description %>
+  <span class="error">
+    <%= @project.errors[:description][0] %>
+  </span>
+  <%= p.text_area :description %>
+
+  <%= p.label :dev_env, "Development environment" %>
+  <span class="error">
+    <%= @project.errors[:dev_env][0] %>
+  </span>
+  <%= p.text_area :dev_env %>
+
+  <%= p.label :prod_env, "Production environment" %>
+  <span class="error">
+    <%= @project.errors[:prod_env][0] %>
+  </span>
+  <%= p.text_area :prod_env %>
+
+  <%= p.label :language_desc, "Language description" %>
+  <span class="error">
+    <%= @project.errors[:language_desc][0] %>
+  </span>
+  <%= p.text_area :language_desc %>
+
+  <div class="formButtons">
+    <%= p.submit :Submit %>
+    <%= button_tag "Reset", type: :reset %><br><br>
+    <% if @currentPage == 'new' %>
+      <%= link_to 'Cancel', projects_path %>
+    <% elsif @currentPage == 'edit' %>
+      <%= link_to 'Cancel', project_path(@project) %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Log in
+  <% if @loginErrors %>
+    Error
+  <% end %>
+</h1>
+<% if @loginErrors %>
+  <span class="error"><%= @loginErrors %></span>
+<% end %>
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, :placeholder => "Email" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+  <div class="formButtons">
+    <%= f.submit "Log in", class: "btn-submit" %>
+  </div>
+<% end %>

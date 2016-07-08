@@ -1,0 +1,16 @@
+/*
+ * header.scss
+ *  Styles the header of the site.
+ *
+*/
+header {
+  background-color: #ff99ac;
+  color: black;
+  padding: 1em;
+  margin: 0;
+
+  h2 {
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+}

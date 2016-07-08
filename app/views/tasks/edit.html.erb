@@ -1,0 +1,7 @@
+<h3>Editing Task: <%= @originalTaskTitle %> for <%= @project.title %>
+  <% if @task.errors.any? %>
+    Error
+  <% end %>
+</h3>
+
+<%= render 'tasks/form' %>

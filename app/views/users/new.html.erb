@@ -1,0 +1,43 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Sign up
+      <% if @user.errors.any? %>
+        Error
+      <% end %>
+    </h1>
+    <%= form_for(:user, url: signup_path) do |f| %>
+
+      <%= f.label :first_name %>
+      <span class="error">
+        <%= @user.errors[:first_name][0] %>
+      </span>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <span class="error">
+        <%= @user.errors[:last_name][0] %>
+      </span>
+      <%= f.text_field :last_name%>
+
+      <%= f.label :email %>
+      <span class="error">
+        <%= @user.errors[:email][0] %>
+      </span>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <span class="error">
+        <%= @user.errors[:password][0] %>
+      </span>
+      <%= f.password_field :password %>
+
+      <div class="formButtons">
+        <%= f.submit "Create an account", class: "btn-submit" %>
+      </div>
+    <% end %>
+
+    </div>
+  </div>
+</div>

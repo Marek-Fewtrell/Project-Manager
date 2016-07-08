@@ -1,0 +1,26 @@
+<%= form_for([@project, @task]) do |t| %>
+
+  <%= t.label :title %>
+    <span class="error">
+      <%= @task.errors[:title][0] %>
+    </span>
+  <%= t.text_field :title %>
+
+  <%= t.label :description %>
+    <span class="error">
+      <%= @task.errors[:description][0] %>
+    </span>
+  <%= t.text_area :description %>
+
+  <%= t.label :status %>
+    <span class="error">
+      <%= @task.errors[:status][0] %>
+    </span>
+  <%= t.text_field :status %>
+
+  <div class="formButtons">
+    <%= t.submit %>
+    <%= button_tag "Reset", type: :reset %><br><br>
+    <%= link_to 'Cancel', project_path(@project) %>
+  </div>
+<% end %>

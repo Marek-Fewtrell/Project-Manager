@@ -1,0 +1,7 @@
+<h3>Editing Project: <%= @originalProjectTitle %>
+  <% if @project.errors.any? %>
+    Error
+  <% end %>
+</h3>
+
+<%= render 'projects/form' %>

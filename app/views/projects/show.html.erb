@@ -1,0 +1,56 @@
+<h3><%= @project.title %></h3>
+
+<% if current_user.admin? %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+  <%= link_to 'Remove Project', project_path(@project), method: :delete, data: { confirm: 'Deleting ' + @project.title + '. Are you sure?' } %>
+<% end %>
+
+<div class="alignLeft">
+  <h4 class="lightBlueText">Project Description:</h4>
+  <div>
+    <%= @project.description %>
+  </div>
+  <h4 class="lightBlueText">Project Development Environment:</h4>
+  <div>
+    <%= @project.dev_env %>
+  </div>
+  <h4 class="lightBlueText">Project Production Environment:</h4>
+  <div>
+    <%= @project.prod_env %>
+  </div>
+  <h4 class="lightBlueText">Project Language Description:</h4>
+  <div>
+    <%= @project.language_desc %>
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+<% if current_user.admin? %>
+  <%= link_to 'Create New Task', new_task_path(:project_id => @project.id) %><br><br>
+<% end %>
+
+<table class="tableCSS">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+    <% if current_user.admin? %>
+      <th>Actions</th>
+    <% end %>
+  </tr>
+  <% @project.task.each do |task| %>
+    <tr>
+      <td><%= task.title %> <br></td>
+      <td><%= task.description %> <br></td>
+      <td><%= task.status %> <br></td>
+      <% if current_user.admin? %>
+        <td>
+          <%= link_to 'Edit', edit_task_path(task, :project_id => @project.id) %> |
+          <%= link_to 'Delete', [task.project, task], method: :delete, data: { confirm: 'Deleting ' + task.title + '. Are you sure?' } %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
