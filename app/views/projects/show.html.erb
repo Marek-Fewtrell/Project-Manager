@@ -1,56 +1,95 @@
 <h3><%= @project.title %></h3>
 
 <% if current_user.admin? %>
-  <%= link_to 'Edit Project', edit_project_path(@project) %> |
-  <%= link_to 'Remove Project', project_path(@project), method: :delete, data: { confirm: 'Deleting ' + @project.title + '. Are you sure?' } %>
+<%= link_to 'Edit Project', edit_project_path(@project) %> |
+<%= link_to 'Remove Project', project_path(@project), method: :delete, data: { confirm: 'Deleting ' + @project.title + '. Are you sure?' } %>
 <% end %>
 
-<div class="alignLeft">
-  <h4 class="lightBlueText">Project Description:</h4>
-  <div>
-    <%= @project.description %>
+<div class="frame">
+
+  <div class="col-2 alignLeft"><!--alignLeft-->
+    <h4 class="lightBlueText">Project Description:</h4>
+    <div>
+      <%= @project.description %>
+    </div>
+    <h4 class="lightBlueText">Project Development Environment:</h4>
+    <div>
+      <%= @project.dev_env %>
+    </div>
+    <h4 class="lightBlueText">Project Production Environment:</h4>
+    <div>
+      <%= @project.prod_env %>
+    </div>
+    <h4 class="lightBlueText">Project Language Description:</h4>
+    <div>
+      <%= @project.language_desc %>
+    </div>
   </div>
-  <h4 class="lightBlueText">Project Development Environment:</h4>
-  <div>
-    <%= @project.dev_env %>
+
+  <div class="col-2">
+    <h4>Features</h4>
+    <% if current_user.admin? %>
+    <%= link_to 'Create New Feature', new_feature_path(:project_id => @project.id) %><br><br>
+    <% end %>
+    <table class="tableCSS">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <% if current_user.admin? %>
+        <th>Actions</th>
+        <% end %>
+      </tr>
+      <% @project.feature.each do |feature| %>
+      <tr>
+        <td><%= feature.title %> <br></td>
+        <td><%= feature.description %> <br></td>
+        <td><%= feature.status %> <br></td>
+        <% if current_user.admin? %>
+        <td>
+          <%= link_to 'Edit', edit_feature_path(feature, :project_id => @project.id) %> |
+          <%= link_to 'Delete', [feature.project, feature], method: :delete, data: { confirm: 'Deleting ' + feature.title + '. Are you sure?' } %>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
   </div>
-  <h4 class="lightBlueText">Project Production Environment:</h4>
-  <div>
-    <%= @project.prod_env %>
-  </div>
-  <h4 class="lightBlueText">Project Language Description:</h4>
-  <div>
-    <%= @project.language_desc %>
-  </div>
+
 </div>
 
 <br>
 <hr>
 <br>
-<% if current_user.admin? %>
-  <%= link_to 'Create New Task', new_task_path(:project_id => @project.id) %><br><br>
-<% end %>
 
-<table class="tableCSS">
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <% if current_user.admin? %>
+<div>
+  <h4>Tasks</h4>
+
+  <% if current_user.admin? %>
+  <%= link_to 'Create New Task', new_task_path(:project_id => @project.id) %><br><br>
+  <% end %>
+
+  <table class="tableCSS">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <% if current_user.admin? %>
       <th>Actions</th>
-    <% end %>
-  </tr>
-  <% @project.task.each do |task| %>
+      <% end %>
+    </tr>
+    <% @project.task.each do |task| %>
     <tr>
       <td><%= task.title %> <br></td>
       <td><%= task.description %> <br></td>
       <td><%= task.status %> <br></td>
       <% if current_user.admin? %>
-        <td>
-          <%= link_to 'Edit', edit_task_path(task, :project_id => @project.id) %> |
-          <%= link_to 'Delete', [task.project, task], method: :delete, data: { confirm: 'Deleting ' + task.title + '. Are you sure?' } %>
-        </td>
+      <td>
+        <%= link_to 'Edit', edit_task_path(task, :project_id => @project.id) %> |
+        <%= link_to 'Delete', [task.project, task], method: :delete, data: { confirm: 'Deleting ' + task.title + '. Are you sure?' } %>
+      </td>
       <% end %>
     </tr>
-  <% end %>
-</table>
+    <% end %>
+  </table>
+</div>

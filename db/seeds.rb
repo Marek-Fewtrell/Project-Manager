@@ -16,7 +16,7 @@ admin = User.create(first_name: 'Admin', last_name: 'Admins', email: 'admin@emai
 project1 = Project.create(title: 'Project 1', description: "Project 1's description", dev_env: 'Development environment', prod_env: 'Production Environment', language_desc: 'Language Description')
 project2 = Project.create(title: 'Project 2', description: "Project 2's description", dev_env: 'Development environment', prod_env: 'Production Environment', language_desc: 'Language Description')
 
-######## Something else ########
+######## Tasks ########
 
 task1 = project1.task.create(title: 'Task 1', description: 'Task 1 in Project 1', status: 'completed')
 task2 = project1.task.create(title: 'Task 2', description: 'Task 2 in Project 1', status: 'incomplete')
@@ -26,5 +26,13 @@ task5 = project1.task.create(title: 'Task 5', description: 'Task 5 in Project 1'
 
 p2task1 = project2.task.create(title: 'Task 1', description: 'Task 1 in Project 2', status: 'completed')
 p2task2 = project2.task.create(title: 'Task 2', description: 'Task 2 in Project 3', status: 'incomplete')
+
+######## Features ########
+
+p1feature1 = project1.feature.create(title: 'Feature 1', description: 'Feature 1 in Project 1', status: 'implemented')
+p1feature2 = project1.feature.create(title: 'Feature 2', description: 'Feature 2 in Project 1', status: 'pending')
+p1feature3 = project1.feature.create(title: 'Feature 3', description: 'Feature 3 in Project 1', status: 'planned')
+
+p2feature1 = project2.feature.create(title: 'Feature 1', description: 'Feature 1 in Project 2', status: 'implemented')
 
 ######## Something else ########

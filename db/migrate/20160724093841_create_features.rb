@@ -1,10 +1,9 @@
-class CreateTasks < ActiveRecord::Migration
+class CreateFeatures < ActiveRecord::Migration
   def change
-    create_table :tasks do |t|
+    create_table :features do |t|
       t.string :title
       t.text :description
       t.string :status
-      #t.string :completed_On
       t.references :project, index: true, foreign_key: true
       t.timestamps null: false
     end
