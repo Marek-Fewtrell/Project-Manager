@@ -39,12 +39,15 @@ section {
 
 .alignLeft {
   text-align: justify;
-  width: auto;
   div {
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 1em;
   }
+}
+
+.topMargin10 {
+  margin-top: 10px;
 }
 
 // Basicaly styling for links.

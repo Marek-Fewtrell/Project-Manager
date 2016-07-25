@@ -1,0 +1,7 @@
+<h3>New Feature for <%= @project.title %>
+  <% if @feature.errors.any? %>
+    Error
+  <% end %>
+</h3>
+
+<%= render 'features/form' %>

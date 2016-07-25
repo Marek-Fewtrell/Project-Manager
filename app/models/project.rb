@@ -6,4 +6,5 @@ class Project < ActiveRecord::Base
   validates :language_desc, presence: true, allow_blank: true
 
   has_many :task, dependent: :destroy
+  has_many :feature, dependent: :destroy
 end

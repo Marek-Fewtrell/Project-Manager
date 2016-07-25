@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # Instead of the following lines, could use:
   resources :projects do
     resources :tasks
+    resources :features
   end
   #get '/projects' => 'projects#index' #Show list of projects
   #get '/projects/:id' => 'projects#show', as: :project #Show individual project
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
   ## Tasks ##
   resources :tasks
 
+  ## Features ##
+  resources :features
+  
   ## Other Stuff ##
 
 
