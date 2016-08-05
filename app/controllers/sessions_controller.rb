@@ -8,12 +8,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params[:session][:email])
-    if @user && @user.authenticate(params[:session][:password])
+    @user = User.find_by_email(params[:email]) #removed [:session] from params list
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to projects_path
     else
-      
       @loginErrors = "Email or password was incorrect"
       render 'new'
     end
