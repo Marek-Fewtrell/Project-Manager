@@ -2,9 +2,9 @@ class FeaturesController < ApplicationController
   before_action :require_admin, only: [:edit, :destroy]
   before_action :require_user, only: [:index, :show, :update, :new, :create]
 
-  def index
-    @features = Feature.all
-  end
+  #def index
+  #  @features = Feature.all
+  #end
 
   def show
     @feature = Feature.find(params[:id])
