@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params[:email]) #removed [:session] from params list
-    if @user && @user.authenticate(params[:password])
+    @user = User.find_by_email(params[:session][:email]) #inserted [:session] back into params list
+    if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to projects_path
     else

@@ -3,6 +3,7 @@ bob:
   last_name: Joe
   email: bob@email.com
   role: admin
+  password_digest: <%= BCrypt::Password.create("bob") %>
 
 alfred:
   first_name: Alfred
