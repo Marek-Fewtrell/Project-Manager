@@ -1,10 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_admin, only: [:edit, :destroy]
-  before_action :require_user, only: [:index, :show, :update, :new, :create]
-
-  def index
-    @tasks = Task.all
-  end
+  before_action :require_user, only: [:show, :update, :new, :create]
 
   def show
     @task = Task.find(params[:id])

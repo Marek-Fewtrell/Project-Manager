@@ -1,18 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
   projectone:
-    name: Project 1
+    title: Project 1
     description: Project 1 Description
     dev_env: Project 1 Dev Environment
     prod_env: Project 1 Production Env
     language_desc: Project 1 Language Desc
 
   projecttwo:
-    name: Project 2
+    title: Project 2
     description: Project 2 Description
     dev_env: Project 2 Dev Environment
     prod_env: Project 2 Production Env
